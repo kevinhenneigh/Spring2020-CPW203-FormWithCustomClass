@@ -21,10 +21,31 @@ function displayGame(myGame:VideoGame):void{
     // display video game below the form
 }
 
+/**
+ * Gets all game data from the form
+ * and returns it in a video game object
+ */
 function getVideoGame():VideoGame{
-    // TODO: Create game
+    let game = new VideoGame();
+    
     // Populate with data from the form
-    // Return game
+    let titleInput = <HTMLInputElement>document.getElementById("title");
+    game.title = titleInput.value;
+
+    let priceInput = <HTMLInputElement>document.getElementById("price");
+    game.price = parseFloat(priceInput.value);
+
+    let ratingInput = <HTMLSelectElement>document.getElementById("rating");
+    game.rating = ratingInput.value;
+
+    let digitalOnly = <HTMLInputElement>document.getElementById("online");
+    if(digitalOnly.checked){
+        game.isDigitalOnly = true;
+    }
+    else{
+        game.isDigitalOnly = false;
+    }
+    return game;
 }
 
 //ADD VALIDATION
