@@ -31,3 +31,7 @@ input[type=button]{
     margin: .5em;
     padding: .2em;
 }
+#validation-summary{
+    color: red;
+    list-style-type: square;
+}
