@@ -19,9 +19,30 @@ function addVideoGame(){
 
 function displayGame(myGame:VideoGame):void{
     // display video game below the form
+    let displayDiv = document.getElementById("display");
+    // create <h2> with game title
+    let gameHeading = document.createElement("h2");
+    gameHeading.innerText = myGame.title;
+    
+    // create paragraph with game details
+    let gameInfo = document.createElement("p");
+    let notDigitalDisplay = "";
+    if(myGame.isDigitalOnly){
+        notDigitalDisplay = "This is a download only game.";
+    }
+    else{
+        notDigitalDisplay = "You can come by a physical copy.";   
+    }
+    gameInfo.innerText = `${myGame.title} has a rating of ${myGame.rating}. 
+                It costs $${myGame.price.toFixed(2)}. ${notDigitalDisplay}.`
+    
+    // add <h2> in the <div id="display"> 
+    displayDiv.appendChild(gameHeading);
+    // add <p> game info
+    displayDiv.appendChild(gameInfo);
 }
 
-/**
+/** 
  * Gets all game data from the form
  * and returns it in a video game object
  */
